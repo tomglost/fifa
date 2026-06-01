@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FIFA Tournament 2025</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="scanline"></div>
+
+  <header>
+    <div class="header-inner">
+      <div class="trophy">⚽</div>
+      <div class="header-text">
+        <h1>FIFA TOURNAMENT <span class="year">2025</span></h1>
+        <p class="subtitle">10 Players · 2 Groups · 1 Champion</p>
+      </div>
+    </div>
+  </header>
+
+  <nav class="tab-nav">
+    <button class="tab active" data-tab="standings">Group Standings</button>
+    <button class="tab" data-tab="schedule">Match Schedule</button>
+    <button class="tab" data-tab="bracket">Knockout Bracket</button>
+  </nav>
+
+  <main>
+    <!-- STANDINGS TAB -->
+    <section id="standings" class="tab-content active">
+      <div class="groups-grid">
+        <div class="group-card">
+          <div class="group-header">GROUP A</div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="pos">#</th>
+                <th class="name">Player</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody id="standings-a"></tbody>
+          </table>
+        </div>
+        <div class="group-card">
+          <div class="group-header">GROUP B</div>
+          <table class="standings-table">
+            <thead>
+              <tr>
+                <th class="pos">#</th>
+                <th class="name">Player</th>
+                <th>P</th>
+                <th>W</th>
+                <th>D</th>
+                <th>L</th>
+                <th>GF</th>
+                <th>GA</th>
+                <th>GD</th>
+                <th>Pts</th>
+              </tr>
+            </thead>
+            <tbody id="standings-b"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE TAB -->
+    <section id="schedule" class="tab-content">
+      <div class="schedule-filters">
+        <button class="filter-btn active" data-filter="all">All Matches</button>
+        <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+        <button class="filter-btn" data-filter="played">Played</button>
+        <button class="filter-btn" data-filter="A">Group A</button>
+        <button class="filter-btn" data-filter="B">Group B</button>
+      </div>
+      <div id="match-list" class="match-list"></div>
+    </section>
+
+    <!-- BRACKET TAB -->
+    <section id="bracket" class="tab-content">
+      <div class="bracket-note" id="bracket-note">
+        Bracket unlocks once the group stage is complete.
+      </div>
+      <div class="bracket-wrap" id="bracket-wrap"></div>
+    </section>
+  </main>
+
+  <!-- SCORE MODAL -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close">✕</button>
+      <h2 class="modal-title">Enter Score</h2>
+      <div class="modal-match" id="modal-match-label"></div>
+      <div class="score-inputs">
+        <div class="score-player">
+          <div class="score-name" id="modal-p1"></div>
+          <input type="number" id="score1" min="0" max="99" placeholder="0" />
+        </div>
+        <div class="score-vs">VS</div>
+        <div class="score-player">
+          <div class="score-name" id="modal-p2"></div>
+          <input type="number" id="score2" min="0" max="99" placeholder="0" />
+        </div>
+      </div>
+      <div id="modal-error" class="modal-error hidden"></div>
+      <div class="modal-actions">
+        <button id="modal-save" class="btn-save">Save Result</button>
+        <button id="modal-clear" class="btn-clear">Clear Result</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

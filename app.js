@@ -380,14 +380,16 @@ async function handleSave() {
     return;
   }
   err.classList.add("hidden");
+  const matchId = activeModal.matchId;
   closeModal();
-  await saveResult(activeModal.matchId, h, a);
+  await saveResult(matchId, h, a);
 }
 
 async function handleClear() {
-  if (!results[activeModal.matchId]) { closeModal(); return; }
+  const matchId = activeModal.matchId;
+  if (!results[matchId]) { closeModal(); return; }
   closeModal();
-  await clearResult(activeModal.matchId);
+  await clearResult(matchId);
 }
 
 // ─── TOAST ────────────────────────────────────────────────────────────────────

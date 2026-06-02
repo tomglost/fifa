@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FIFA Tournament 2025</title>
+  <title>100s FIFA Tournament</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,21 +15,36 @@
     <div class="header-inner">
       <div class="trophy">⚽</div>
       <div class="header-text">
-        <h1>FIFA TOURNAMENT <span class="year">2025</span></h1>
+        <h1>100s FIFA TOURNAMENT</h1>
         <p class="subtitle">10 Players · 2 Groups · 1 Champion</p>
       </div>
     </div>
   </header>
 
   <nav class="tab-nav">
-    <button class="tab active" data-tab="standings">Group Standings</button>
+    <button class="tab active" data-tab="players">Players</button>
+    <button class="tab" data-tab="standings">Group Standings</button>
     <button class="tab" data-tab="schedule">Match Schedule</button>
     <button class="tab" data-tab="bracket">Knockout Bracket</button>
   </nav>
 
   <main>
+    <!-- PLAYERS TAB -->
+    <section id="players" class="tab-content active">
+      <div class="players-groups">
+        <div class="group-card">
+          <div class="group-header">GROUP A</div>
+          <div id="players-a" class="players-grid"></div>
+        </div>
+        <div class="group-card">
+          <div class="group-header">GROUP B</div>
+          <div id="players-b" class="players-grid"></div>
+        </div>
+      </div>
+    </section>
+
     <!-- STANDINGS TAB -->
-    <section id="standings" class="tab-content active">
+    <section id="standings" class="tab-content">
       <div class="groups-grid">
         <div class="group-card">
           <div class="group-header">GROUP A</div>

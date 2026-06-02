@@ -10,6 +10,7 @@ const PLAYERS = {
   8:  { id: 8,  name: "Rory Cope",       group: "A", seed: 8  },
   9:  { id: 9,  name: "George Verco",    group: "A", seed: 9  },
   10: { id: 10, name: "Marco Mclaren",   group: "B", seed: 10 },
+  11: { id: 11, name: "Renee",           group: "B", seed: 11 },
 };
 
 // ─── GROUP STAGE MATCHES (interleaved schedule) ─────────────────────────────
@@ -35,6 +36,16 @@ const GROUP_MATCHES = [
   { id: "g18", matchNum: 18, group: "B", home: 6,  away: 10 },
   { id: "g19", matchNum: 19, group: "A", home: 4,  away: 8  },
   { id: "g20", matchNum: 20, group: "B", home: 3,  away: 7  },
+  { id: "g21", matchNum: 21, group: "B", home: 2,  away: 11 },
+  { id: "g22", matchNum: 22, group: "B", home: 11, away: 3  },
+  { id: "g23", matchNum: 23, group: "B", home: 6,  away: 11 },
+  { id: "g24", matchNum: 24, group: "B", home: 11, away: 7  },
+  { id: "g25", matchNum: 25, group: "B", home: 10, away: 11 },
+  { id: "g26", matchNum: 26, group: "B", home: 11, away: 2  },
+  { id: "g27", matchNum: 27, group: "B", home: 3,  away: 11 },
+  { id: "g28", matchNum: 28, group: "B", home: 11, away: 6  },
+  { id: "g29", matchNum: 29, group: "B", home: 7,  away: 11 },
+  { id: "g30", matchNum: 30, group: "B", home: 11, away: 10 },
 ];
 
 // ─── KNOCKOUT TEMPLATE ──────────────────────────────────────────────────────

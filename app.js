@@ -173,9 +173,58 @@ function resolveKnockout() {
 
 // ─── RENDER ───────────────────────────────────────────────────────────────────
 function render() {
+  renderPlayers();
   renderStandings();
   renderSchedule();
   renderBracket();
+}
+
+function renderPlayers() {
+  ["A", "B"].forEach(group => {
+    const container = document.getElementById(`players-${group.toLowerCase()}`);
+    if (!container) return;
+    
+    const groupPlayers = Object.values(PLAYERS).filter(p => p.group === group).sort((a, b) => a.seed - b.seed);
+    const standings = calcStandings(group);
+    const standingsMap = {};
+    standings.forEach((p, i) => {
+      standingsMap[p.id] = { ...p, position: i + 1 };
+    });
+
+    container.innerHTML = groupPlayers.map(player => {
+      const stats = standingsMap[player.id];
+      const totalMatches = GROUP_MATCHES.filter(m => m.group === group).length;
+      const played = stats ? stats.P : 0;
+      const remaining = totalMatches - played;
+
+      return `
+        <div class="player-card">
+          <div class="player-name">${player.name}</div>
+          <div class="player-meta">
+            <span class="player-seed">Seed ${player.seed}</span>
+            ${stats && stats.position <= 4 ? '<span class="player-seed" style="background: rgba(255,193,7,0.12); color: var(--gold);">Qualified</span>' : ''}
+          </div>
+          <div class="player-stats">
+            <div class="player-stat">
+              <div class="player-stat-label">Played</div>
+              <div class="player-stat-value">${played}</div>
+            </div>
+            <div class="player-stat">
+              <div class="player-stat-label">Remaining</div>
+              <div class="player-stat-value">${remaining}</div>
+            </div>
+            <div class="player-stat">
+              <div class="player-stat-label">Record</div>
+              <div class="player-stat-value">${stats ? `${stats.W}-${stats.D}-${stats.L}` : '0-0-0'}</div>
+            </div>
+            <div class="player-stat">
+              <div class="player-stat-label">Points</div>
+              <div class="player-stat-value">${stats ? stats.Pts : 0}</div>
+            </div>
+          </div>
+        </div>`;
+    }).join("");
+  });
 }
 
 function renderStandings() {

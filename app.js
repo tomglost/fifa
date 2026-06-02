@@ -180,18 +180,32 @@ function render() {
 }
 
 function renderPlayers() {
+  if (!PLAYERS || !GROUP_MATCHES) {
+    console.error("PLAYERS or GROUP_MATCHES not defined");
+    return;
+  }
+
   ["A", "B"].forEach(group => {
-    const container = document.getElementById(`players-${group.toLowerCase()}`);
+    const containerId = `players-${group.toLowerCase()}`;
+    const container = document.getElementById(containerId);
     if (!container) return;
     
-    const groupPlayers = Object.values(PLAYERS).filter(p => p.group === group).sort((a, b) => a.seed - b.seed);
+    const groupPlayers = Object.values(PLAYERS)
+      .filter(p => p.group === group)
+      .sort((a, b) => a.seed - b.seed);
+    
+    if (!groupPlayers || groupPlayers.length === 0) {
+      container.innerHTML = '<p style="color: var(--muted); padding: 1rem;">No players found</p>';
+      return;
+    }
+    
     const standings = calcStandings(group);
     const standingsMap = {};
     standings.forEach((p, i) => {
       standingsMap[p.id] = { ...p, position: i + 1 };
     });
 
-    container.innerHTML = groupPlayers.map(player => {
+    const html = groupPlayers.map(player => {
       const stats = standingsMap[player.id];
       const totalMatches = GROUP_MATCHES.filter(m => m.group === group).length;
       const played = stats ? stats.P : 0;
@@ -224,6 +238,8 @@ function renderPlayers() {
           </div>
         </div>`;
     }).join("");
+    
+    container.innerHTML = html;
   });
 }
 

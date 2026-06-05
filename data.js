@@ -1,4 +1,4 @@
-// ─── PLAYERS ────────────────────────────────────────────────────────────────
+// ─── PLAYERS ─────────────────────────────────────────────────────────────[...]
 const PLAYERS = {
   1:  { id: 1,  name: "Seb La Hei",      group: "A", seed: 1  },
   2:  { id: 2,  name: "Alec Sellston",   group: "B", seed: 2  },
@@ -50,13 +50,13 @@ const GROUP_MATCHES = [
 
 // ─── KNOCKOUT TEMPLATE ──────────────────────────────────────────────────────
 // Seeding: QF1 = A1 vs B4, QF2 = B1 vs A4, QF3 = A2 vs B3, QF4 = B2 vs A3
-// SF1 = QF1w vs QF2w, SF2 = QF3w vs QF4w, Final = SF1w vs SF2w
+// SF1 = QF1w vs QF4w, SF2 = QF2w vs QF3w, Final = SF1w vs SF2w
 const KNOCKOUT_TEMPLATE = [
   { id: "qf1", round: "QF", label: "QF 1", homeSlot: "A1", awaySlot: "B4" },
   { id: "qf2", round: "QF", label: "QF 2", homeSlot: "B1", awaySlot: "A4" },
   { id: "qf3", round: "QF", label: "QF 3", homeSlot: "A2", awaySlot: "B3" },
   { id: "qf4", round: "QF", label: "QF 4", homeSlot: "B2", awaySlot: "A3" },
-  { id: "sf1", round: "SF", label: "SF 1", homeSlot: "W:qf1", awaySlot: "W:qf2" },
-  { id: "sf2", round: "SF", label: "SF 2", homeSlot: "W:qf3", awaySlot: "W:qf4" },
+  { id: "sf1", round: "SF", label: "SF 1", homeSlot: "W:qf1", awaySlot: "W:qf4" },
+  { id: "sf2", round: "SF", label: "SF 2", homeSlot: "W:qf2", awaySlot: "W:qf3" },
   { id: "f1",  round: "F",  label: "FINAL", homeSlot: "W:sf1", awaySlot: "W:sf2" },
 ];

@@ -41,22 +41,17 @@ const GROUP_MATCHES = [
   { id: "g23", matchNum: 23, group: "B", home: 6,  away: 11 },
   { id: "g24", matchNum: 24, group: "B", home: 11, away: 7  },
   { id: "g25", matchNum: 25, group: "B", home: 10, away: 11 },
-  { id: "g26", matchNum: 26, group: "B", home: 11, away: 2  },
-  { id: "g27", matchNum: 27, group: "B", home: 3,  away: 11 },
-  { id: "g28", matchNum: 28, group: "B", home: 11, away: 6  },
-  { id: "g29", matchNum: 29, group: "B", home: 7,  away: 11 },
-  { id: "g30", matchNum: 30, group: "B", home: 11, away: 10 },
 ];
 
-// ─── KNOCKOUT TEMPLATE ──────────────────────────────────────────────────────
-// Seeding: QF1 = A1 vs B4, QF2 = B1 vs A4, QF3 = A2 vs B3, QF4 = B2 vs A3
-// SF1 = QF1w vs QF4w, SF2 = QF2w vs QF3w, Final = SF1w vs SF2w
+
 const KNOCKOUT_TEMPLATE = [
   { id: "qf1", round: "QF", label: "QF 1", homeSlot: "A1", awaySlot: "B4" },
-  { id: "qf2", round: "QF", label: "QF 2", homeSlot: "B1", awaySlot: "A4" },
-  { id: "qf3", round: "QF", label: "QF 3", homeSlot: "A2", awaySlot: "B3" },
-  { id: "qf4", round: "QF", label: "QF 4", homeSlot: "B2", awaySlot: "A3" },
-  { id: "sf1", round: "SF", label: "SF 1", homeSlot: "W:qf1", awaySlot: "W:qf4" },
-  { id: "sf2", round: "SF", label: "SF 2", homeSlot: "W:qf2", awaySlot: "W:qf3" },
-  { id: "f1",  round: "F",  label: "FINAL", homeSlot: "W:sf1", awaySlot: "W:sf2" },
+  { id: "qf2", round: "QF", label: "QF 2", homeSlot: "B2", awaySlot: "A3" },
+  { id: "qf3", round: "QF", label: "QF 3", homeSlot: "B1", awaySlot: "A4" },
+  { id: "qf4", round: "QF", label: "QF 4", homeSlot: "A2", awaySlot: "B3" },
+
+  { id: "sf1", round: "SF", label: "SF 1", homeSlot: "W:qf1", awaySlot: "W:qf2" },
+  { id: "sf2", round: "SF", label: "SF 2", homeSlot: "W:qf3", awaySlot: "W:qf4" },
+
+  { id: "f1", round: "F", label: "FINAL", homeSlot: "W:sf1", awaySlot: "W:sf2" },
 ];
